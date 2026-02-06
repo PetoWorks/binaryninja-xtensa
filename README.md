@@ -2,6 +2,21 @@
 
 Xtensa machine code decoder & Binary Ninja architecture plugin.
 
+**Build (Linux)**
+```
+$ git clone https://github.com/PetoWorks/binaryninja-xtensa
+$ git clone https://github.com/Vector35/binaryninja-api
+$ cd binaryninja-api && cat <PATH_TO>/binaryninja/api_REVISION.txt
+$ git checkout <REVISION>
+$ git submodule update --init --recursive
+$ cd ../binaryninja-xtensa
+$ mkdir build
+$ cmake -S . -B build -D BN_API_PATH="$(realpath ../binaryninja-api)" -D BN_INSTALL_DIR="<PATH_TO>/binaryninja"
+$ cmake --build build
+$ ln -sf "$(realpath build/lib/xtensa_arch/libarch_xtensa.so)" "$HOME/.binaryninja/plugins/libarch_xtensa.so"
+```
+
+
 **Build (macOS)**
 ```
 $ git clone https://github.com/PetoWorks/binaryninja-xtensa
